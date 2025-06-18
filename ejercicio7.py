@@ -1,8 +1,6 @@
-valid=False
 def valid(name):
     length=len(name)
     if length>6:
-        valid==True
         print ("el nombre es valido")
     else:
         print ("el nombre no es valido")
