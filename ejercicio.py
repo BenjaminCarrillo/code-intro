@@ -20,13 +20,39 @@ def ing_puntaje(adventurers,codigo,puntaje):
         return False
 def mod_puntaje(adventurers,codigo,sesion):
     try:
-        puntaje=int(input("ingresa el nuevo puntaje"))
+        newpuntaje=int(input("ingresa el nuevo puntaje"))
     except:
         try:
-            puntaje=int(input("ingresa el nuevo puntaje"))
+            newpuntaje=int(input("ingresa el nuevo puntaje"))
         except:
             print("ingrese un numero valido")
-    adventurers[codigo]['puntaje'][sesion-1]=puntaje
+    adventurers[codigo]['puntaje'][sesion-1]= newpuntaje
+def mostrar_participacion(aventureros)
+    for codigo,datos in aventureros.items()
+        for puntaje in datos['puntajes']:
+            total=0
+            print(puntaje)
+            for puntaje in datos['puntajes']
+                total += puntaje
+            if len(datos['puntajes'])>0:
+                promedio = total/len(datos['puntajes']
+            else:
+                promedio=0
+            print(f"{datos[nombres]}, total {total}, promedio: {promedio}")
+def participantes_low(avetureros,umbral)
+    for codigo,datos in aventureros.items()
+        for puntaje in datos['puntajes']:
+            total=0
+            print(puntaje)
+            for puntaje in datos['puntajes']
+                total += puntaje
+            if len(datos['puntajes'])>0:
+                promedio = total/len(datos['puntajes']
+            else:
+                promedio=0
+            if promedio < umbral
+            print(f"{datos[nombres]},{codigo}, {edad}, promedio: {promedio}")
+
 while True:
     print("1. Registrar Aventurero.")
     print("2. Registrar puntaje.")
@@ -53,7 +79,6 @@ while True:
             print("se registro con exito")
         else:
             print("no se pudo registrar por que el usuario ya existe")
-        
     if opcion=="2":
         codigo=input("ingresa tu codigo unico= ")
         try:
@@ -77,11 +102,7 @@ while True:
             try:
                 sesion=int(input("ingrese el numero de la sesion"))
             except:
-                while True:
-                    try: 
-                        sesion=int(input("ingrese el numero de la sesion"))
-                    except:
-                        print("ingrese un numero")
+                print("ingrese un numero")
             lenght=len(adventurers[codigo]['puntaje']) 
             if sesion<=lenght: 
                 mod_puntaje(adventurers,codigo,sesion)
@@ -90,11 +111,9 @@ while True:
         elif esta==False:
             print("el usuario no existe")
     if opcion=="4":
-        for i in adventurers[codigo]:
-            for n in adventurers[codigo]['puntaje']:
-                print(i,n)
+        def mostrar_participacion(aventureros)
     if opcion==5:
-        pass
+        def participantes_low(avetureros,400)
     if opcion==6:
         pass
     if opcion==7:
