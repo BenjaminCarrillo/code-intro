@@ -13,7 +13,11 @@ def reg_adventurer(adventurers,codigo,datos):
         print("ese codigo ya existe")
         return False
 def ing_puntaje(adventurers,codigo,puntaje):
-    adventurers[codigo]['puntaje'].append(puntaje) 
+    if codigo in adventurers: 
+        adventurers[codigo]['puntaje'].append(puntaje) 
+        return True
+    else:
+        return False
 def mod_puntaje(adventurers,codigo,sesion):
     try:
         puntaje=int(input("ingresa el nuevo puntaje"))
@@ -52,18 +56,16 @@ while True:
         
     if opcion=="2":
         codigo=input("ingresa tu codigo unico= ")
-        if codigo in adventurers:
-            esta==True
-            try:
-                puntaje=int(("ingrese su puntaje= "))
-            except:
-                while True:
-                    try:
-                        puntaje=int(input("ingrese el puntaje= "))
-                        break
-                    except:
-                        print("ingrese un numero= ")
-            ing_puntaje(adventurers,codigo,puntaje)
+        try:
+            puntaje=int(("ingrese su puntaje= "))
+        except:
+            while True:
+                try:
+                    puntaje=int(input("ingrese el puntaje= "))
+                    break
+                except:
+                    print("ingrese un numero= ")
+        ing_puntaje(adventurers,codigo,puntaje)
         elif esta==False:
             print("el usuario no existe")
         lenght=len(adventurers[codigo]['puntaje']) 
