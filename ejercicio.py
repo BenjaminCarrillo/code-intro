@@ -1,11 +1,17 @@
 adventurers={
 } 
 esta=False
-def reg_adventurer(adventurers,codigo,nombre,edad):
+def reg_adventurer(adventurers,codigo,datos):
     if codigo not in adventurers:
-        adventurers[codigo]= {'nombre':nombre,'edad':edad,'puntaje':[]}
+        adventurers[codigo]= {
+            'nombre':datos[0],
+            'edad':datos[1],
+            'puntaje':[]
+        }
+        return True
     else:
         print("ese codigo ya existe")
+        return False
 def ing_puntaje(adventurers,codigo,puntaje):
     adventurers[codigo]['puntaje'].append(puntaje) 
 def mod_puntaje(adventurers,codigo,sesion):
@@ -39,7 +45,11 @@ while True:
                     break
                 except:
                     print("siga intentando")
-        reg_adventurer(adventurers,codigo,nombre,edad)
+        if reg_adventurer(adventurers,codigo,[nombre,edad]):
+            print("se registro con exito")
+        else:
+            print("no se pudo registrar por que el usuario ya existe")
+        
     if opcion=="2":
         codigo=input("ingresa tu codigo unico= ")
         if codigo in adventurers:
